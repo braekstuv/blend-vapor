@@ -25,6 +25,15 @@ namespace Vapor.Uwp
         public MainPage()
         {
             this.InitializeComponent();
+
+            if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
+            {
+                
+            }
+            else
+            {
+
+            }
         }
     }
 }

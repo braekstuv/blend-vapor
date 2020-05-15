@@ -11,20 +11,6 @@
     <Page.Resources>
         <ControlTemplate x:Key="MyButtonStyle" TargetType="Button">
             <Grid x:Name="grid" BorderBrush="Black">
-                <Grid.Resources>
-                    <Storyboard x:Key="Highlight">
-                        <DoubleAnimationUsingKeyFrames
-                            EnableDependentAnimation="True"
-                            Storyboard.TargetName="rectangle"
-                            Storyboard.TargetProperty="(Shape.Stroke).(Brush.Opacity)">
-                            <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1">
-                                <EasingDoubleKeyFrame.EasingFunction>
-                                    <CircleEase EasingMode="EaseIn" />
-                                </EasingDoubleKeyFrame.EasingFunction>
-                            </EasingDoubleKeyFrame>
-                        </DoubleAnimationUsingKeyFrames>
-                    </Storyboard>
-                </Grid.Resources>
                 <Rectangle
                     Width="104"
                     Margin="0,9,0,23"

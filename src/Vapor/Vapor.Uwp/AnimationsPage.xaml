@@ -144,12 +144,6 @@
                 <CompositeTransform />
             </Ellipse.RenderTransform>
         </Ellipse>
-        <Button
-            x:Name="button"
-            Canvas.Left="573"
-            Canvas.Top="360"
-            Content="Button"
-            Style="{StaticResource ButtonStyle1}" />
 
     </Canvas>
 </Page>

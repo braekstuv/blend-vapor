@@ -1,0 +1,44 @@
+﻿<Window
+    x:Class="Vapor.WPF.NetFramework.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:GameListDataSource="clr-namespace:Expression.Blend.SampleData.GameListDataSource"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vapor.WPF.NetFramework"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <GameListDataSource:GameListDataSource x:Key="GameListDataSource" d:IsDataSource="True" />
+        <DataTemplate x:Key="ItemTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Column="0"
+                    Height="50"
+                    Source="{Binding Cover}" />
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <CheckBox IsChecked="{Binding InLibrary}" />
+                    <TextBlock Text="{Binding Title}" />
+                </StackPanel>
+            </Grid>
+
+        </DataTemplate>
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource GameListDataSource}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <ListBox
+            x:Name="listBox"
+            ItemTemplate="{DynamicResource ItemTemplate}"
+            ItemsSource="{Binding Collection}" />
+    </Grid>
+</Window>
